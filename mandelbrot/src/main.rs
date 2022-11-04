@@ -29,7 +29,7 @@ fn mandelbrot_at_point(cx: f64, cy: f64, max_iters: usize) -> usize {
     let mut z = Complex { re: 0.0, im: 0.0 };
     let c = Complex::new(cx, cy);
 
-    for i in 0..max_iters {
+    for i in 0..=max_iters {
         if z.norm() > 2.0 {
             return i;
         }
@@ -61,7 +61,7 @@ fn render_mandelbrot(escape_vals: Vec<Vec<usize>>) {
 }
 
 fn main() {
-    let mandelbrot = calculate_mandelbrot(1000, 2.0, 1.0, -1.0, 1.0, 100, 24);
+    let mandelbrot = calculate_mandelbrot(1000, -2.0, 1.0, -1.0, 1.0, 100, 24);
 
     render_mandelbrot(mandelbrot);
 }
